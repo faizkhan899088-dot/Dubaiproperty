@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dubai Investment Opportunities</title>
+    <meta name="description" content="Explore exclusive investment opportunities in Dubai, including real estate, business ventures, and more. Connect with our expert team for personalized investment solutions.">
+    <meta name="keywords" content="Dubai investment, real estate investment Dubai, business opportunities Dubai, invest in Dubai, Dubai financial services">
+    <meta name="author" content="Dubai Investment Group">
+    <meta name="robots" content="index, follow">
+    <title>Dubai Investment Opportunities | Invest in Dubai</title>
     <style>
         * {
             margin: 0;
@@ -20,7 +24,7 @@
 
         header {
             background: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            height: 100vh;
+            height: 80vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -69,11 +73,38 @@
             background: #b8860b;
         }
 
-        .form-section {
-            padding: 3rem 2rem;
-            max-width: 600px;
+        .main-section {
+            display: flex;
+            max-width: 1200px;
             margin: 2rem auto;
+            padding: 2rem;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .content-left {
+            flex: 1;
+            min-width: 300px;
             background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-left h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .content-left p {
+            margin-bottom: 1rem;
+        }
+
+        .form-section {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
@@ -134,6 +165,29 @@
             margin-top: 1rem;
         }
 
+        .seo-section {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .seo-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .seo-section h3 {
+            color: #2c3e50;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .seo-section p {
+            margin-bottom: 1rem;
+        }
+
         footer {
             text-align: center;
             padding: 2rem;
@@ -150,9 +204,14 @@
                 font-size: 1rem;
             }
 
+            .main-section {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .content-left,
             .form-section {
-                margin: 1rem;
-                padding: 2rem 1rem;
+                margin: 0;
             }
         }
     </style>
@@ -166,34 +225,65 @@
         </div>
     </header>
 
-    <section class="form-section" id="investment-form">
-        <h2>Connect with Our Investment Team</h2>
-        <form id="investmentForm">
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
-            <div class="form-group">
-                <label for="investment-type">Investment Interest</label>
-                <select id="investment-type" name="investment-type" required>
-                    <option value="" disabled selected>Select an option</option>
-                    <option value="real-estate">Real Estate</option>
-                    <option value="business">Business Ventures</option>
-                    <option value="stocks">Stocks & Bonds</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-            <button type="submit">Submit</button>
-            <p class="success-message" id="successMessage">Thank you! Our team will contact you soon.</p>
-        </form>
+    <section class="main-section">
+        <div class="content-left">
+            <h2>Why Invest in Dubai?</h2>
+            <p>Dubai is a global hub for investment, offering unparalleled opportunities in real estate, business, and financial markets. With its strategic location, tax-free environment, and world-class infrastructure, Dubai attracts investors worldwide.</p>
+            <p>Our team at Dubai Investment Group specializes in guiding you through high-return opportunities, whether you're interested in luxury properties, innovative startups, or diversified portfolios.</p>
+            <p>Key benefits include:</p>
+            <ul>
+                <li>Tax-free income and capital gains</li>
+                <li>Stable and growing economy</li>
+                <li>World-class real estate developments</li>
+                <li>Access to global markets</li>
+            </ul>
+            <p>Fill out the form to connect with our experts and start your investment journey today.</p>
+        </div>
+        <div class="form-section" id="investment-form">
+            <h2>Connect with Our Investment Team</h2>
+            <form id="investmentForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="investment-type">Investment Interest</label>
+                    <select id="investment-type" name="investment-type" required aria-required="true">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="real-estate">Real Estate</option>
+                        <option value="business">Business Ventures</option>
+                        <option value="stocks">Stocks & Bonds</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button type="submit">Submit</button>
+                <p class="success-message" id="successMessage">Thank you! Our team will contact you soon.</p>
+            </form>
+        </div>
+    </section>
+
+    <section class="seo-section">
+        <h2>Why Choose Dubai for Your Investments?</h2>
+        <p>Dubai is a premier destination for investors seeking high returns and long-term growth. Known for its futuristic skyline, business-friendly policies, and vibrant economy, Dubai offers a wealth of opportunities across multiple sectors.</p>
+        
+        <h3>Real Estate Investment in Dubai</h3>
+        <p>Dubai’s real estate market is one of the most dynamic in the world. From luxury villas in Palm Jumeirah to commercial properties in Downtown Dubai, the city offers diverse options for investors. With no property taxes and high rental yields, real estate in Dubai is a top choice for wealth creation.</p>
+        
+        <h3>Business Opportunities in Dubai</h3>
+        <p>Starting or expanding a business in Dubai is seamless, thanks to free zones, 100% foreign ownership, and zero corporate taxes. Sectors like technology, tourism, and logistics are thriving, making Dubai an ideal hub for entrepreneurs and investors.</p>
+        
+        <h3>Financial Markets and Beyond</h3>
+        <p>Dubai’s financial markets offer access to global stocks, bonds, and alternative investments. With a stable currency and a robust financial ecosystem, investors can diversify their portfolios with confidence.</p>
+        
+        <p>Ready to explore investment opportunities in Dubai? Contact our expert team today by filling out the form above, and let us guide you toward a prosperous future.</p>
     </section>
 
     <footer>
