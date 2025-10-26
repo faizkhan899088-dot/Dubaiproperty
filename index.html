@@ -17,25 +17,27 @@
             font-family: 'Roboto', sans-serif;
             line-height: 1.8;
             color: #333;
-            background: #f5f5f5;
+            background: #f8f9fa;
+            scroll-behavior: smooth;
         }
 
         .container {
-            width: 85%;
-            max-width: 1280px;
+            width: 90%;
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 0 1rem;
         }
 
         /* Header Styles */
         header {
-            background: linear-gradient(90deg, #1a2a44, #2a4066);
-            color: #fff;
+            background: #ffffff;
+            color: #1a2a44;
             padding: 1.5rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         header .container {
@@ -46,13 +48,15 @@
 
         .logo h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            letter-spacing: 1px;
+            font-size: 2.2rem;
+            letter-spacing: 1.5px;
+            color: #1a2a44;
         }
 
         nav ul {
             list-style: none;
             display: flex;
+            align-items: center;
         }
 
         nav ul li {
@@ -60,28 +64,41 @@
         }
 
         nav ul li a {
-            color: #fff;
+            color: #1a2a44;
             text-decoration: none;
             font-size: 1.1rem;
-            font-weight: 400;
-            transition: color 0.3s ease;
+            font-weight: 500;
+            transition: color 0.3s ease, background 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
         }
 
         nav ul li a:hover,
-        nav ul li a:focus {
+        nav ul li a:focus,
+        nav ul li a.active {
             color: #e6b800;
+            background: rgba(230, 184, 0, 0.1);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            color: #1a2a44;
+            cursor: pointer;
         }
 
         /* Hero Section */
         .hero {
-            background: url('https://via.placeholder.com/1200x600?text=Dubai+Skyline') no-repeat center center/cover;
+            background: url('https://img.andrewprokos.com/DUBAI-MARINA-FROM-PALM-JUMEIRAH-NIGHT-2795-1100PX.jpg') no-repeat center center/cover;
             height: 100vh;
             display: flex;
             align-items: center;
             text-align: center;
             color: #fff;
-            padding-top: 100px;
             position: relative;
+            padding-top: 80px;
         }
 
         .hero::before {
@@ -91,210 +108,318 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.6);
             z-index: 1;
         }
 
         .hero .container {
             position: relative;
             z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 4.5rem;
             margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .btn {
             display: inline-block;
-            padding: 1rem 2rem;
+            padding: 1rem 2.5rem;
             background: linear-gradient(45deg, #e6b800, #f4d03f);
             color: #fff;
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
+            border-radius: 10px;
+            font-size: 1.2rem;
             font-weight: 500;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s ease;
+        }
+
+        .btn:hover::after,
+        .btn:focus::after {
+            left: 0;
         }
 
         .btn:hover,
         .btn:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Search Bar */
+        .search-bar {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem;
+            border-radius: 10px;
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-bar input,
+        .search-bar select {
+            padding: 0.8rem 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            flex: 1;
+            min-width: 150px;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-bar input:focus,
+        .search-bar select:focus {
+            border-color: #e6b800;
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 0.8rem 2rem;
+            background: linear-gradient(45deg, #e6b800, #f4d03f);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .search-bar button:hover,
+        .search-bar button:focus {
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         /* Properties Section */
         .properties {
-            padding: 5rem 0;
+            padding: 6rem 0;
             background: #fff;
         }
 
         .properties h2 {
             font-family: 'Playfair Display', serif;
             text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
+            margin-bottom: 3.5rem;
+            font-size: 3rem;
             color: #1a2a44;
         }
 
         .property-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
         }
 
         .property-card {
             background: #fff;
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
 
         .property-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
         .property-card img {
             width: 100%;
-            height: 220px;
+            height: 250px;
             object-fit: cover;
+            loading: lazy;
         }
 
         .property-card h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            margin: 1.2rem 0 0.6rem;
+            font-size: 1.8rem;
+            margin: 1.5rem 0 0.8rem;
             color: #1a2a44;
         }
 
         .property-card p {
             color: #666;
-            margin-bottom: 1.2rem;
-            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
         }
 
         /* Forum Section */
         .forum {
-            padding: 5rem 0;
-            background: #f5f5f5;
+            padding: 6rem 0;
+            background: #f8f9fa;
         }
 
         .forum h2 {
             font-family: 'Playfair Display', serif;
             text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
+            margin-bottom: 3.5rem;
+            font-size: 3rem;
             color: #1a2a44;
         }
 
         .forum-posts {
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 0.3s;
         }
 
         .post {
             background: #fff;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
         }
 
         .post h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
             color: #1a2a44;
         }
 
         .post p {
             color: #666;
-            margin-bottom: 1.2rem;
-            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
         }
 
         .forum-form {
             background: #fff;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .forum-form h3 {
             font-family: 'Playfair Display', serif;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-size: 2rem;
             color: #1a2a44;
+            text-align: center;
         }
 
         .forum-form input,
-        .forum-form textarea {
+        .forum-form textarea,
+        .forum-form select {
             width: 100%;
-            padding: 1rem;
-            margin-bottom: 1.2rem;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1rem;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1.1rem;
             transition: border-color 0.3s ease;
         }
 
         .forum-form input:focus,
-        .forum-form textarea:focus {
+        .forum-form textarea:focus,
+        .forum-form select:focus {
             border-color: #e6b800;
             outline: none;
         }
 
+        .forum-form input.valid,
+        .forum-form select.valid {
+            border-color: #28a745;
+        }
+
+        .forum-form input.invalid,
+        .forum-form select.invalid {
+            border-color: #dc3545;
+        }
+
         .forum-form textarea {
-            height: 120px;
+            height: 140px;
             resize: vertical;
         }
 
         /* Contact Section */
         .contact {
-            padding: 5rem 0;
+            padding: 6rem 0;
             background: #fff;
         }
 
         .contact h2 {
             font-family: 'Playfair Display', serif;
             text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
+            margin-bottom: 3.5rem;
+            font-size: 3rem;
             color: #1a2a44;
         }
 
         .contact form {
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         .contact input,
-        .contact textarea {
+        .contact textarea,
+        .contact select {
             width: 100%;
-            padding: 1rem;
-            margin-bottom: 1.2rem;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1rem;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1.1rem;
             transition: border-color 0.3s ease;
         }
 
         .contact input:focus,
-        .contact textarea:focus {
+        .contact textarea:focus,
+        .contact select:focus {
             border-color: #e6b800;
             outline: none;
         }
 
+        .contact input.valid,
+        .contact select.valid {
+            border-color: #28a745;
+        }
+
+        .contact input.invalid,
+        .contact select.invalid {
+            border-color: #dc3545;
+        }
+
         .contact textarea {
-            height: 160px;
+            height: 180px;
             resize: vertical;
         }
 
@@ -304,7 +429,7 @@
             margin-top: 1.5rem;
             color: #e6b800;
             font-weight: 500;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
 
         /* Popup Form */
@@ -315,7 +440,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.7);
             z-index: 2000;
             align-items: center;
             justify-content: center;
@@ -323,13 +448,14 @@
 
         .popup-form {
             background: #fff;
-            padding: 2.5rem;
-            border-radius: 12px;
-            max-width: 500px;
+            padding: 3rem;
+            border-radius: 15px;
+            max-width: 600px;
             width: 90%;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
             position: relative;
             animation: fadeIn 0.5s ease;
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
         }
 
         @keyframes fadeIn {
@@ -339,40 +465,54 @@
 
         .popup-form h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
             color: #1a2a44;
             text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .popup-form input,
-        .popup-form textarea {
+        .popup-form textarea,
+        .popup-form select {
             width: 100%;
-            padding: 1rem;
-            margin-bottom: 1.2rem;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1rem;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            transition: border-color 0.3s ease;
         }
 
         .popup-form input:focus,
-        .popup-form textarea:focus {
+        .popup-form textarea:focus,
+        .popup-form select:focus {
             border-color: #e6b800;
             outline: none;
         }
 
+        .popup-form input.valid,
+        .popup-form select.valid {
+            border-color: #28a745;
+        }
+
+        .popup-form input.invalid,
+        .popup-form select.invalid {
+            border-color: #dc3545;
+        }
+
         .popup-form textarea {
-            height: 100px;
+            height: 120px;
             resize: vertical;
         }
 
         .popup-form .close-btn {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            top: 1.2rem;
+            right: 1.2rem;
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: #333;
             cursor: pointer;
             transition: color 0.3s ease;
@@ -383,35 +523,100 @@
             color: #e6b800;
         }
 
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(45deg, #e6b800, #f4d03f);
+            color: #fff;
+            padding: 1rem;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            display: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-to-top:hover,
+        .back-to-top:focus {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        /* Loading State */
+        .btn.loading::after {
+            content: 'Loading...';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+        }
+
         /* Footer Section */
         footer {
             background: linear-gradient(90deg, #1a2a44, #2a4066);
             color: #fff;
             text-align: center;
-            padding: 1.5rem 0;
-            font-size: 1rem;
+            padding: 2rem 0;
+            font-size: 1.1rem;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             header .container {
-                flex-direction: column;
+                flex-direction: row;
+                justify-content: space-between;
             }
 
             nav ul {
-                margin-top: 1rem;
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                padding: 1rem 0;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
             }
 
             nav ul li {
-                margin: 0 1rem;
+                margin: 1rem 0;
+            }
+
+            .hamburger {
+                display: block;
             }
 
             .hero h2 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
 
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1.3rem;
+                max-width: 90%;
+            }
+
+            .search-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-bar input,
+            .search-bar select {
+                min-width: 100%;
             }
 
             .property-grid {
@@ -421,12 +626,37 @@
             .properties h2,
             .forum h2,
             .contact h2 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             .popup-form {
                 width: 95%;
-                padding: 1.5rem;
+                padding: 2rem;
+            }
+
+            .back-to-top {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                padding: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .popup-form h3 {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -439,7 +669,8 @@
                 <h1>Dubai Property</h1>
             </div>
             <nav>
-                <ul>
+                <button class="hamburger" aria-label="Toggle navigation menu">☰</button>
+                <ul id="nav-menu">
                     <li><a href="#home" aria-label="Go to Home">Home</a></li>
                     <li><a href="#properties" aria-label="Go to Properties">Properties</a></li>
                     <li><a href="#forum" aria-label="Go to Forum">Forum</a></li>
@@ -449,12 +680,23 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Search Bar -->
     <section id="home" class="hero">
         <div class="container">
-            <h2>Discover Luxury Properties in Dubai</h2>
-            <p>Explore premium villas, apartments, and penthouses in the heart of Dubai.</p>
-            <a href="#properties" class="btn" aria-label="Explore Properties">Explore Properties</a>
+            <h2>Discover Luxury Living in Dubai</h2>
+            <p>Explore exquisite villas, modern apartments, and exclusive penthouses in Dubai's most prestigious neighborhoods.</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Location (e.g., Downtown Dubai)" aria-label="Search by location">
+                <select aria-label="Select property type">
+                    <option value="">Property Type</option>
+                    <option value="villa">Villa</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="penthouse">Penthouse</option>
+                </select>
+                <input type="number" placeholder="Min Price (AED)" aria-label="Minimum price">
+                <input type="number" placeholder="Max Price (AED)" aria-label="Maximum price">
+                <button type="submit" aria-label="Search properties">Search</button>
+            </div>
         </div>
     </section>
 
@@ -463,23 +705,23 @@
         <div class="container">
             <h2>Featured Properties</h2>
             <div class="property-grid">
-                <div class="property-card">
-                    <img src="https://via.placeholder.com/300x200?text=Beachfront+Villa" alt="Beachfront Villa">
+                <div class="property-card" onclick="window.location.href='#property-details-1'" role="button" tabindex="0" aria-label="View Beachfront Villa Details">
+                    <img src="https://oneperfectstay.com/wp-content/uploads/2023/03/Luxury-Beachfront-Villas-in-Dubai.webp" alt="Beachfront Villa" loading="lazy">
                     <h3>Beachfront Villa</h3>
                     <p>3 Beds | 4 Baths | AED 5.5M</p>
-                    <a href="#" class="btn" aria-label="View Beachfront Villa Details">View Details</a>
+                    <a href="#property-details-1" class="btn" aria-label="View Beachfront Villa Details">View Details</a>
                 </div>
-                <div class="property-card">
-                    <img src="https://via.placeholder.com/300x200?text=City+Apartment" alt="City Apartment">
+                <div class="property-card" onclick="window.location.href='#property-details-2'" role="button" tabindex="0" aria-label="View City Apartment Details">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/577411491.jpg?k=47967598c80a1492e7e7a1eb0391a9d4fddcd5d5ce063042cee1094b188ab53f&o=&hp=1" alt="City Apartment" loading="lazy">
                     <h3>City Apartment</h3>
                     <p>2 Beds | 2 Baths | AED 2.8M</p>
-                    <a href="#" class="btn" aria-label="View City Apartment Details">View Details</a>
+                    <a href="#property-details-2" class="btn" aria-label="View City Apartment Details">View Details</a>
                 </div>
-                <div class="property-card">
-                    <img src="https://via.placeholder.com/300x200?text=Luxury+Penthouse" alt="Luxury Penthouse">
+                <div class="property-card" onclick="window.location.href='#property-details-3'" role="button" tabindex="0" aria-label="View Luxury Penthouse Details">
+                    <img src="https://www.luxuryabode.com/propimg/2022/10/13/1665660308_1.jpg" alt="Luxury Penthouse" loading="lazy">
                     <h3>Luxury Penthouse</h3>
                     <p>4 Beds | 5 Baths | AED 10M</p>
-                    <a href="#" class="btn" aria-label="View Luxury Penthouse Details">View Details</a>
+                    <a href="#property-details-3" class="btn" aria-label="View Luxury Penthouse Details">View Details</a>
                 </div>
             </div>
         </div>
@@ -510,8 +752,15 @@
         <div class="container">
             <h2>Contact Us</h2>
             <form id="contact-form">
-                <input type="text" id="contact-name" placeholder="Name" required aria-label="Name">
-                <input type="email" id="contact-email" placeholder="Email" required aria-label="Email">
+                <input type="text" id="contact-name" placeholder="Your Name" required aria-label="Name">
+                <input type="email" id="contact-email" placeholder="Your Email" required aria-label="Email">
+                <input type="tel" id="contact-phone" placeholder="Your Phone Number" required aria-label="Phone Number">
+                <select id="contact-property-type" aria-label="Preferred Property Type">
+                    <option value="">Preferred Property Type</option>
+                    <option value="villa">Villa</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="penthouse">Penthouse</option>
+                </select>
                 <textarea id="contact-message" placeholder="Your Message" required aria-label="Message"></textarea>
                 <button type="submit" class="btn">Send</button>
             </form>
@@ -523,16 +772,27 @@
     <div class="popup-overlay" id="popup-overlay">
         <div class="popup-form">
             <button class="close-btn" id="close-popup" aria-label="Close popup">&times;</button>
-            <h3>Stay Updated with Dubai Property</h3>
+            <h3>Unlock Exclusive Property Updates</h3>
             <form id="popup-form">
-                <input type="text" id="popup-name" placeholder="Your Name" required aria-label="Name">
+                <input type="text" id="popup-name" placeholder="Your Full Name" required aria-label="Full Name">
                 <input type="email" id="popup-email" placeholder="Your Email" required aria-label="Email">
+                <input type="tel" id="popup-phone" placeholder="Your Phone Number" required aria-label="Phone Number">
+                <select id="popup-property-type" required aria-label="Preferred Property Type">
+                    <option value="">Preferred Property Type</option>
+                    <option value="villa">Villa</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="penthouse">Penthouse</option>
+                </select>
+                <input type="number" id="popup-budget" placeholder="Budget (AED)" required aria-label="Budget">
                 <textarea id="popup-message" placeholder="Your Inquiry (Optional)" aria-label="Inquiry"></textarea>
-                <button type="submit" class="btn">Submit</button>
+                <button type="submit" class="btn">Join Now</button>
             </form>
             <p id="popup-message-output" class="form-message"></p>
         </div>
     </div>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" aria-label="Back to Top">↑</a>
 
     <!-- Footer Section -->
     <footer>
@@ -563,39 +823,78 @@
             return div.innerHTML;
         }
 
-        // Function to render forum posts
+        // Function to render forum posts with loading animation
         function renderPosts() {
             const postsContainer = document.getElementById('forum-posts');
-            postsContainer.innerHTML = ''; // Clear existing posts
-            forumPosts.forEach(post => {
-                const postElement = document.createElement('div');
-                postElement.classList.add('post');
-                postElement.innerHTML = `
-                    <h3>${sanitizeInput(post.title)}</h3>
-                    <p><strong>${sanitizeInput(post.username)}:</strong> ${sanitizeInput(post.message)}</p>
-                    <a href="#" class="btn" aria-label="Reply to ${sanitizeInput(post.title)}">Reply</a>
-                `;
-                postsContainer.appendChild(postElement);
-            });
+            postsContainer.innerHTML = '<p style="text-align: center; color: #666;">Loading posts...</p>';
+            setTimeout(() => {
+                postsContainer.innerHTML = '';
+                forumPosts.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.classList.add('post');
+                    postElement.innerHTML = `
+                        <h3>${sanitizeInput(post.title)}</h3>
+                        <p><strong>${sanitizeInput(post.username)}:</strong> ${sanitizeInput(post.message)}</p>
+                        <a href="#" class="btn" aria-label="Reply to ${sanitizeInput(post.title)}">Reply</a>
+                    `;
+                    postsContainer.appendChild(postElement);
+                });
+            }, 500);
+        }
+
+        // Real-time form validation
+        function validateInput(input, isEmail = false, isPhone = false, isSelect = false) {
+            if (!input.value.trim()) {
+                input.classList.remove('valid');
+                input.classList.add('invalid');
+            } else if (isEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) {
+                input.classList.remove('valid');
+                input.classList.add('invalid');
+            } else if (isPhone && !/^\+?\d{10,12}$/.test(input.value.trim())) {
+                input.classList.remove('valid');
+                input.classList.add('invalid');
+            } else if (isSelect && input.value === '') {
+                input.classList.remove('valid');
+                input.classList.add('invalid');
+            } else {
+                input.classList.remove('invalid');
+                input.classList.add('valid');
+            }
         }
 
         // Forum Form Submission
         document.getElementById('forum-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            const username = document.getElementById('forum-username').value.trim();
-            const title = document.getElementById('forum-title').value.trim();
-            const message = document.getElementById('forum-message').value.trim();
+            const username = document.getElementById('forum-username');
+            const title = document.getElementById('forum-title');
+            const message = document.getElementById('forum-message');
             const output = document.getElementById('forum-message-output');
+            const submitBtn = this.querySelector('button');
 
-            if (username && title && message) {
-                forumPosts.push({ username, title, message });
-                localStorage.setItem('forumPosts', JSON.stringify(forumPosts));
-                renderPosts();
-                output.textContent = `Discussion "${sanitizeInput(title)}" posted successfully!`;
-                this.reset();
-                output.setAttribute('aria-live', 'polite');
+            validateInput(username);
+            validateInput(title);
+            validateInput(message);
+
+            if (username.value.trim() && title.value.trim() && message.value.trim()) {
+                submitBtn.classList.add('loading');
+                setTimeout(() => {
+                    forumPosts.push({
+                        username: username.value.trim(),
+                        title: title.value.trim(),
+                        message: message.value.trim()
+                    });
+                    localStorage.setItem('forumPosts', JSON.stringify(forumPosts));
+                    renderPosts();
+                    output.textContent = `Discussion "${sanitizeInput(title.value)}" posted successfully!`;
+                    output.setAttribute('aria-live', 'polite');
+                    this.reset();
+                    submitBtn.classList.remove('loading');
+                    username.classList.remove('valid', 'invalid');
+                    title.classList.remove('valid', 'invalid');
+                    message.classList.remove('valid', 'invalid');
+                }, 1000);
             } else {
-                output.textContent = 'Please fill in all fields.';
+                output.textContent = 'Please fill in all required fields.';
                 output.setAttribute('aria-live', 'assertive');
             }
         });
@@ -603,35 +902,132 @@
         // Contact Form Submission
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            const name = document.getElementById('contact-name').value.trim();
-            const email = document.getElementById('contact-email').value.trim();
-            const message = document.getElementById('contact-message').value.trim();
+            const name = document.getElementById('contact-name');
+            const email = document.getElementById('contact-email');
+            const phone = document.getElementById('contact-phone');
+            const propertyType = document.getElementById('contact-property-type');
+            const message = document.getElementById('contact-message');
             const output = document.getElementById('contact-message-output');
+            const submitBtn = this.querySelector('button');
 
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (name && email && message && emailRegex.test(email)) {
-                output.textContent = `Thank you, ${sanitizeInput(name)}! Your message has been sent.`;
-                output.setAttribute('aria-live', 'polite');
-                this.reset();
+            validateInput(name);
+            validateInput(email, true);
+            validateInput(phone, false, true);
+            validateInput(propertyType, false, false, true);
+            validateInput(message);
+
+            if (
+                name.value.trim() &&
+                email.value.trim() &&
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()) &&
+                phone.value.trim() &&
+                /^\+?\d{10,12}$/.test(phone.value.trim()) &&
+                propertyType.value !== '' &&
+                message.value.trim()
+            ) {
+                submitBtn.classList.add('loading');
+                setTimeout(() => {
+                    output.textContent = `Thank you, ${sanitizeInput(name.value)}! Your message has been sent.`;
+                    output.setAttribute('aria-live', 'polite');
+                    this.reset();
+                    submitBtn.classList.remove('loading');
+                    name.classList.remove('valid', 'invalid');
+                    email.classList.remove('valid', 'invalid');
+                    phone.classList.remove('valid', 'invalid');
+                    propertyType.classList.remove('valid', 'invalid');
+                    message.classList.remove('valid', 'invalid');
+                }, 1000);
             } else {
-                output.textContent = 'Please fill in all fields with a valid email.';
+                output.textContent = 'Please fill in all required fields with valid data.';
                 output.setAttribute('aria-live', 'assertive');
+            }
+        });
+
+        // Popup Form Submission
+        document.getElementById('popup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('popup-name');
+            const email = document.getElementById('popup-email');
+            const phone = document.getElementById('popup-phone');
+            const propertyType = document.getElementById('popup-property-type');
+            const budget = document.getElementById('popup-budget');
+            const message = document.getElementById('popup-message');
+            const output = document.getElementById('popup-message-output');
+            const submitBtn = this.querySelector('button');
+
+            validateInput(name);
+            validateInput(email, true);
+            validateInput(phone, false, true);
+            validateInput(propertyType, false, false, true);
+            validateInput(budget);
+
+            if (
+                name.value.trim() &&
+                email.value.trim() &&
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()) &&
+                phone.value.trim() &&
+                /^\+?\d{10,12}$/.test(phone.value.trim()) &&
+                propertyType.value !== '' &&
+                budget.value.trim()
+            ) {
+                submitBtn.classList.add('loading');
+                setTimeout(() => {
+                    output.textContent = `Thank you, ${sanitizeInput(name.value)}! We'll keep you updated with exclusive property offers.`;
+                    output.setAttribute('aria-live', 'polite');
+                    this.reset();
+                    submitBtn.classList.remove('loading');
+                    name.classList.remove('valid', 'invalid');
+                    email.classList.remove('valid', 'invalid');
+                    phone.classList.remove('valid', 'invalid');
+                    propertyType.classList.remove('valid', 'invalid');
+                    budget.classList.remove('valid', 'invalid');
+                    message.classList.remove('valid', 'invalid');
+                    setTimeout(() => {
+                        document.getElementById('popup-overlay').style.display = 'none';
+                        localStorage.setItem('popupClosed', 'true');
+                    }, 2000);
+                }, 1000);
+            } else {
+                output.textContent = 'Please fill in all required fields with valid data.';
+                output.setAttribute('aria-live', 'assertive');
+            }
+        });
+
+        // Real-time validation for forms
+        ['forum-username', 'forum-title', 'forum-message'].forEach(id => {
+            const input = document.getElementById(id);
+            if (input) {
+                input.addEventListener('input', () => validateInput(input));
+            }
+        });
+
+        ['contact-name', 'contact-email', 'contact-phone', 'contact-property-type', 'contact-message'].forEach(id => {
+            const input = document.getElementById(id);
+            if (input) {
+                input.addEventListener('input', () => validateInput(input, id.includes('email'), id.includes('phone'), id.includes('property-type')));
+            }
+        });
+
+        ['popup-name', 'popup-email', 'popup-phone', 'popup-property-type', 'popup-budget'].forEach(id => {
+            const input = document.getElementById(id);
+            if (input) {
+                input.addEventListener('input', () => validateInput(input, id.includes('email'), id.includes('phone'), id.includes('property-type')));
             }
         });
 
         // Popup Form Handling
         const popupOverlay = document.getElementById('popup-overlay');
         const closePopup = document.getElementById('close-popup');
-        const popupForm = document.getElementById('popup-form');
-        const popupOutput = document.getElementById('popup-message-output');
 
-        // Show popup on page load if not previously closed
+        // Show popup on page load with delay
         document.addEventListener('DOMContentLoaded', () => {
             if (!localStorage.getItem('popupClosed')) {
-                popupOverlay.style.display = 'flex';
-                document.getElementById('popup-name').focus();
+                setTimeout(() => {
+                    popupOverlay.style.display = 'flex';
+                    document.getElementById('popup-name').focus();
+                }, 1000);
             }
-            renderPosts(); // Render forum posts
+            renderPosts();
         });
 
         // Close popup
@@ -648,26 +1044,60 @@
             }
         });
 
-        // Popup form submission
-        popupForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('popup-name').value.trim();
-            const email = document.getElementById('popup-email').value.trim();
-            const message = document.getElementById('popup-message').value.trim();
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
 
-            if (name && email && emailRegex.test(email)) {
-                popupOutput.textContent = `Thank you, ${sanitizeInput(name)}! We'll keep you updated.`;
-                popupOutput.setAttribute('aria-live', 'polite');
-                popupForm.reset();
-                setTimeout(() => {
-                    popupOverlay.style.display = 'none';
-                    localStorage.setItem('popupClosed', 'true');
-                }, 2000);
+        // Highlight active navigation link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        const sections = document.querySelectorAll('section');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Back to Top button visibility
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'block';
             } else {
-                popupOutput.textContent = 'Please provide a valid name and email.';
-                popupOutput.setAttribute('aria-live', 'assertive');
+                backToTop.style.display = 'none';
             }
+        });
+
+        // Make property cards keyboard-accessible
+        document.querySelectorAll('.property-card').forEach(card => {
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    card.click();
+                }
+            });
+        });
+
+        // Search bar functionality (placeholder)
+        document.querySelector('.search-bar').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const location = e.target.querySelector('input[type="text"]').value;
+            const type = e.target.querySelector('select').value;
+            const minPrice = e.target.querySelector('input[placeholder="Min Price (AED)"]').value;
+            const maxPrice = e.target.querySelector('input[placeholder="Max Price (AED)"]').value;
+            alert(`Searching for ${type || 'any property'} in ${location || 'any location'} between AED ${minPrice || '0'} and AED ${maxPrice || '∞'}`);
         });
 
         // Allow closing popup with Escape key
