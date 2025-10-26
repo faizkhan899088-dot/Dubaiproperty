@@ -1108,5 +1108,70 @@
             }
         });
     </script>
+        document.getElementById("cardForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(event.target);
+      const formDetails = {
+        contact-name: formData.get("Your Name"),
+        contact-email: formData.get("Your Email"),
+        contact-phone: formData.get("Your Phone Number"),
+        contact-message: formData.get("Your Message"),
+      };
+
+      const scriptURL = "https://script.google.com/macros/s/AKfycbz8mfYd-8c3kpBGHTXgZSEQ5aJRmJOUSsRbY2bII_VZneSocI7BVXMwfnF10tSUVa0dvQ/exec";
+
+      fetch(scriptURL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formDetails),
+      })
+        .then(() => {
+          document.getElementById("errorMsg").style.display = "block";
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("⚠️ Something went wrong! Try again.");
+        });
+    });
+
+    function openPopup() {
+      document.getElementById("popup").style.display = "block";
+      document.getElementById("overlay").style.display = "block";
+      document.getElementById("numberPopup").style.display = "none";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+      document.getElementById("overlay").style.display = "none";
+      document.getElementById("enquiryForm").reset();
+    }
+
+    function openNumberPopup() {
+      document.getElementById("numberPopup").style.display = "block";
+      document.getElementById("overlay").style.display = "block";
+      document.getElementById("popup").style.display = "none";
+    }
+
+    function closeNumberPopup() {
+      document.getElementById("numberPopup").style.display = "none";
+      document.getElementById("overlay").style.display = "none";
+    }
+
+    function submitEnquiry() {
+      const mobileNo = document.getElementById("mobileNo").value;
+      const name = document.getElementById("name").value;
+      const requirement = document.getElementById("requirement").value;
+      if (mobileNo && name && requirement) {
+        alert(`Enquiry Submitted!\nMobile No: ${mobileNo}\nName: ${name}\nRequirement: ${requirement}`);
+        closePopup();
+      } else {
+        alert("Please fill all fields!");
+      }
+    }
+  </script>
 </body>
 </html>
