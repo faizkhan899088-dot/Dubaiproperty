@@ -1,1 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dubai Property - Luxury Real Estate</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background: #1a2a44;
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+            color: #f4b400;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://via.placeholder.com/1200x600?text=Dubai+Skyline') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding-top: 80px; /* Offset for fixed header */
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #f4b400;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            background: #d89e00;
+        }
+
+        /* Properties Section */
+        .properties {
+            padding: 4rem 0;
+            background: #f9f9f9;
+        }
+
+        .properties h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .property-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .property-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .property-card h3 {
+            font-size: 1.5rem;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .property-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        /* Forum Section */
+        .forum {
+            padding: 4rem 0;
+        }
+
+        .forum h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .forum-posts {
+            margin-bottom: 2rem;
+        }
+
+        .post {
+            background: #fff;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .post h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .post p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .forum-form {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .forum-form h3 {
+            margin-bottom: 1rem;
+        }
+
+        .forum-form input,
+        .forum-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .forum-form textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 0;
+            background: #f9f9f9;
+        }
+
+        .contact h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact input,
+        .contact textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Form Message */
+        .form-message {
+            text-align: center;
+            margin-top: 1rem;
+            color: #f4b400;
+            font-weight: bold;
+        }
+
+        /* Footer Section */
+        footer {
+            background: #1a2a44;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+            }
+
+            nav ul li {
+                margin: 0 1rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Dubai Property</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" aria-label="Go to Home">Home</a></li>
+                    <li><a href="#properties" aria-label="Go to Properties">Properties</a></li>
+                    <li><a href="#forum" aria-label="Go to Forum">Forum</a></li>
+                    <li><a href="#contact" aria-label="Go to Contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Discover Luxury Properties in Dubai</h2>
+            <p>Explore premium villas, apartments, and penthouses in the heart of Dubai.</p>
+            <a href="#properties" class="btn" aria-label="Explore Properties">Explore Properties</a>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section id="properties" class="properties">
+        <div class="container">
+            <h2>Featured Properties</h2>
+            <div class="property-grid">
+                <div class="property-card">
+                    <img src="https://via.placeholder.com/300x200?text=Beachfront+Villa" alt="Beachfront Villa">
+                    <h3>Beachfront Villa</h3>
+                    <p>3 Beds | 4 Baths | AED 5.5M</p>
+                    <a href="#" class="btn" aria-label="View Beachfront Villa Details">View Details</a>
+                </div>
+                <div class="property-card">
+                    <img src="https://via.placeholder.com/300x200?text=City+Apartment" alt="City Apartment">
+                    <h3>City Apartment</h3>
+                    <p>2 Beds | 2 Baths | AED 2.8M</p>
+                    <a href="#" class="btn" aria-label="View City Apartment Details">View Details</a>
+                </div>
+                <div class="property-card">
+                    <img src="https://via.placeholder.com/300x200?text=Luxury+Penthouse" alt="Luxury Penthouse">
+                    <h3>Luxury Penthouse</h3>
+                    <p>4 Beds | 5 Baths | AED 10M</p>
+                    <a href="#" class="btn" aria-label="View Luxury Penthouse Details">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forum Section -->
+    <section id="forum" class="forum">
+        <div class="container">
+            <h2>Community Forum</h2>
+            <div id="forum-posts" class="forum-posts">
+                <!-- Posts will be dynamically added via JavaScript -->
+            </div>
+            <div class="forum-form">
+                <h3>Start a New Discussion</h3>
+                <form id="forum-form">
+                    <input type="text" id="forum-username" placeholder="Your Username" required aria-label="Username">
+                    <input type="text" id="forum-title" placeholder="Discussion Title" required aria-label="Discussion Title">
+                    <textarea id="forum-message" placeholder="Write your message..." required aria-label="Message"></textarea>
+                    <button type="submit" class="btn">Post</button>
+                </form>
+                <p id="forum-message-output" class="form-message"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <input type="text" id="contact-name" placeholder="Name" required aria-label="Name">
+                <input type="email" id="contact-email" placeholder="Email" required aria-label="Email">
+                <textarea id="contact-message" placeholder="Your Message" required aria-label="Message"></textarea>
+                <button type="submit" class="btn">Send</button>
+            </form>
+            <p id="contact-message-output" class="form-message"></p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Dubai Property. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize forum posts array (stored in localStorage for persistence)
+        let forumPosts = JSON.parse(localStorage.getItem('forumPosts')) || [
+            {
+                username: 'User123',
+                title: 'Best Areas to Invest in Dubai?',
+                message: 'Looking for advice on the best neighborhoods for real estate investment in Dubai. Any suggestions?'
+            },
+            {
+                username: 'JaneDoe',
+                title: 'Rental Market Trends',
+                message: 'How is the rental market in Downtown Dubai right now? Is it a good time to buy?'
+            }
+        ];
+
+        // Function to sanitize input to prevent XSS
+        function sanitizeInput(input) {
+            const div = document.createElement('div');
+            div.textContent = input;
+            return div.innerHTML;
+        }
+
+        // Function to render forum posts
+        function renderPosts() {
+            const postsContainer = document.getElementById('forum-posts');
+            postsContainer.innerHTML = ''; // Clear existing posts
+            forumPosts.forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.classList.add('post');
+                postElement.innerHTML = `
+                    <h3>${sanitizeInput(post.title)}</h3>
+                    <p><strong>${sanitizeInput(post.username)}:</strong> ${sanitizeInput(post.message)}</p>
+                    <a href="#" class="btn" aria-label="Reply to ${sanitizeInput(post.title)}">Reply</a>
+                `;
+                postsContainer.appendChild(postElement);
+            });
+        }
+
+        // Forum Form Submission
+        document.getElementById('forum-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('forum-username').value.trim();
+            const title = document.getElementById('forum-title').value.trim();
+            const message = document.getElementById('forum-message').value.trim();
+            const output = document.getElementById('forum-message-output');
+
+            if (username && title && message) {
+                // Add new post
+                forumPosts.push({ username, title, message });
+                // Save to localStorage
+                localStorage.setItem('forumPosts', JSON.stringify(forumPosts));
+                // Re-render posts
+                renderPosts();
+                output.textContent = `Discussion "${sanitizeInput(title)}" posted successfully!`;
+                this.reset(); // Clear the form
+                output.setAttribute('aria-live', 'polite');
+            } else {
+                output.textContent = 'Please fill in all fields.';
+                output.setAttribute('aria-live', 'assertive');
+            }
+        });
+
+        // Contact Form Submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('contact-name').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const message = document.getElementById('contact-message').value.trim();
+            const output = document.getElementById('contact-message-output');
+
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (name && email && message && emailRegex.test(email)) {
+                output.textContent = `Thank you, ${sanitizeInput(name)}! Your message has been sent.`;
+                output.setAttribute('aria-live', 'polite');
+                this.reset(); // Clear the form
+            } else {
+                output.textContent = 'Please fill in all fields with a valid email.';
+                output.setAttribute('aria-live', 'assertive');
+            }
+        });
+
+        // Initial render of forum posts
+        document.addEventListener('DOMContentLoaded', renderPosts);
+    </script>
+</body>
+</html>
