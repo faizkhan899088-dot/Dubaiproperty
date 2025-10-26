@@ -3,34 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore exclusive investment opportunities in Dubai, including real estate, business ventures, and more. Connect with our expert team for personalized investment solutions.">
+    <meta name="description" content="Discover exclusive investment opportunities in Dubai with Dubai Investment Group. Explore real estate, business ventures, and financial markets with our expert team.">
     <meta name="keywords" content="Dubai investment, real estate investment Dubai, business opportunities Dubai, invest in Dubai, Dubai financial services">
     <meta name="author" content="Dubai Investment Group">
     <meta name="robots" content="index, follow">
     <title>Dubai Investment Opportunities | Invest in Dubai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #f4e9d8, #d4a373);
-            color: #333;
+            background: linear-gradient(135deg, #f5f0e1, #e6c07b);
+            color: #2c3e50;
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: #1a252f;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            color: #d4a373;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4a373;
         }
 
         header {
             background: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            height: 80vh;
+            height: 90vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: white;
             position: relative;
+            background-attachment: fixed;
         }
 
         header::before {
@@ -40,43 +75,48 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
         }
 
         .header-content {
             position: relative;
             z-index: 1;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease forwards;
         }
 
         .header-content h1 {
-            font-size: 3rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
         }
 
         .header-content p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 2rem;
         }
 
         .cta-button {
             background: #d4a373;
             color: white;
-            padding: 0.8rem 2rem;
+            padding: 1rem 2.5rem;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 50px;
             font-weight: bold;
-            transition: background 0.3s;
+            transition: transform 0.3s, background 0.3s;
         }
 
         .cta-button:hover {
             background: #b8860b;
+            transform: scale(1.1);
         }
 
         .main-section {
             display: flex;
             max-width: 1200px;
-            margin: 2rem auto;
+            margin: 3rem auto;
             padding: 2rem;
             gap: 2rem;
             flex-wrap: wrap;
@@ -86,59 +126,93 @@
             flex: 1;
             min-width: 300px;
             background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft 0.8s ease forwards 0.2s;
         }
 
         .content-left h2 {
-            color: #2c3e50;
+            font-family: 'Montserrat', sans-serif;
+            color: #1a252f;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-left ul {
+            list-style: none;
             margin-bottom: 1rem;
         }
 
-        .content-left p {
-            margin-bottom: 1rem;
+        .content-left ul li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .content-left ul li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #d4a373;
+            position: absolute;
+            left: 0;
         }
 
         .form-section {
             flex: 1;
             min-width: 300px;
             background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideInRight 0.8s ease forwards 0.2s;
         }
 
         .form-section h2 {
+            font-family: 'Montserrat', sans-serif;
             text-align: center;
             margin-bottom: 1.5rem;
-            color: #2c3e50;
+            color: #1a252f;
         }
 
         .form-group {
             margin-bottom: 1.5rem;
+            position: relative;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: bold;
-            color: #2c3e50;
+            color: #1a252f;
         }
 
         .form-group input,
         .form-group select {
             width: 100%;
-            padding: 0.8rem;
+            padding: 0.8rem 0.8rem 0.8rem 2.5rem;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
 
         .form-group input:focus,
         .form-group select:focus {
             outline: none;
             border-color: #d4a373;
+            box-shadow: 0 0 5px rgba(212, 163, 115, 0.5);
+        }
+
+        .form-group i {
+            position: absolute;
+            left: 0.8rem;
+            top: 2.4rem;
+            color: #d4a373;
         }
 
         button {
@@ -147,14 +221,15 @@
             background: #d4a373;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
             font-size: 1.1rem;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: transform 0.3s, background 0.3s;
         }
 
         button:hover {
             background: #b8860b;
+            transform: scale(1.05);
         }
 
         .success-message {
@@ -167,37 +242,48 @@
 
         .seo-section {
             max-width: 1200px;
-            margin: 2rem auto;
-            padding: 2rem;
+            margin: 3rem auto;
+            padding: 2.5rem;
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 0.4s;
         }
 
-        .seo-section h2 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
+        .seo-section h2,
         .seo-section h3 {
-            color: #2c3e50;
-            margin: 1.5rem 0 1rem;
-        }
-
-        .seo-section p {
-            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            color: #1a252f;
+            margin-bottom: 1.5rem;
         }
 
         footer {
             text-align: center;
             padding: 2rem;
-            background: #2c3e50;
+            background: #1a252f;
             color: white;
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
         }
 
         @media (max-width: 768px) {
             .header-content h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             .header-content p {
@@ -213,11 +299,33 @@
             .form-section {
                 margin: 0;
             }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                margin: 0 0.5rem;
+            }
+
+            header {
+                background-attachment: scroll;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
+    <nav>
+        <div class="logo">Dubai Investment Group</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#investment-form">Contact</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
+    <header id="home">
         <div class="header-content">
             <h1>Invest in Dubai's Future</h1>
             <p>Unlock exclusive investment opportunities in the heart of luxury and innovation.</p>
@@ -244,18 +352,22 @@
             <form id="investmentForm">
                 <div class="form-group">
                     <label for="name">Full Name</label>
+                    <i class="fas fa-user"></i>
                     <input type="text" id="name" name="name" required aria-required="true">
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address</label>
+                    <i class="fas fa-envelope"></i>
                     <input type="email" id="email" name="email" required aria-required="true">
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
+                    <i class="fas fa-phone"></i>
                     <input type="tel" id="phone" name="phone" required aria-required="true">
                 </div>
                 <div class="form-group">
                     <label for="investment-type">Investment Interest</label>
+                    <i class="fas fa-briefcase"></i>
                     <select id="investment-type" name="investment-type" required aria-required="true">
                         <option value="" disabled selected>Select an option</option>
                         <option value="real-estate">Real Estate</option>
@@ -270,7 +382,7 @@
         </div>
     </section>
 
-    <section class="seo-section">
+    <section class="seo-section" id="about">
         <h2>Why Choose Dubai for Your Investments?</h2>
         <p>Dubai is a premier destination for investors seeking high returns and long-term growth. Known for its futuristic skyline, business-friendly policies, and vibrant economy, Dubai offers a wealth of opportunities across multiple sectors.</p>
         
@@ -294,19 +406,17 @@
         document.getElementById('investmentForm').addEventListener('submit', function(event) {
             event.preventDefault();
             
-            // Basic form validation
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
             const investmentType = document.getElementById('investment-type').value;
 
             if (name && email && phone && investmentType) {
-                // Simulate form submission (in a real scenario, send data to a server)
                 document.getElementById('successMessage').style.display = 'block';
-                this.reset(); // Clear the form
+                this.reset();
                 setTimeout(() => {
                     document.getElementById('successMessage').style.display = 'none';
-                }, 3000); // Hide success message after 3 seconds
+                }, 3000);
             }
         });
     </script>
