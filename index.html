@@ -8,64 +8,72 @@
     <meta name="author" content="Dubai Investment Group">
     <meta name="robots" content="index, follow">
     <title>Dubai Investment Opportunities | Invest in Dubai</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Open Sans', sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #f5f0e1, #e6c07b);
-            color: #2c3e50;
+            background: #f8f4e6;
+            color: #1a252f;
             line-height: 1.6;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         nav {
             position: sticky;
             top: 0;
-            background: #1a252f;
-            padding: 1rem 2rem;
+            background: linear-gradient(90deg, #1a252f, #2c3e50);
+            padding: 1rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
         }
 
         .logo {
             color: #d4a373;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
-            margin-left: 1.5rem;
-            font-size: 1rem;
-            transition: color 0.3s;
+            margin-left: 2rem;
+            font-size: 1.1rem;
+            transition: color 0.3s, transform 0.3s;
         }
 
         .nav-links a:hover {
             color: #d4a373;
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
         }
 
         header {
-            background: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            height: 90vh;
+            position: relative;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: white;
-            position: relative;
-            background-attachment: fixed;
+            background: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
         }
 
         header::before {
@@ -75,80 +83,83 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
         }
 
         .header-content {
             position: relative;
             z-index: 1;
             opacity: 0;
-            transform: translateY(50px);
-            animation: fadeInUp 1s ease forwards;
+            transform: scale(0.9);
+            animation: zoomIn 1s ease forwards;
         }
 
         .header-content h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+            font-family: 'Poppins', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9);
         }
 
         .header-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
         }
 
         .cta-button {
-            background: #d4a373;
+            background: linear-gradient(45deg, #d4a373, #b8860b);
             color: white;
-            padding: 1rem 2.5rem;
+            padding: 1rem 3rem;
             text-decoration: none;
             border-radius: 50px;
-            font-weight: bold;
-            transition: transform 0.3s, background 0.3s;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .cta-button:hover {
-            background: #b8860b;
-            transform: scale(1.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 163, 115, 0.5);
         }
 
         .main-section {
             display: flex;
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 2rem;
-            gap: 2rem;
+            max-width: 1300px;
+            margin: 4rem auto;
+            padding: 3rem;
+            gap: 3rem;
             flex-wrap: wrap;
         }
 
         .content-left {
             flex: 1;
-            min-width: 300px;
+            min-width: 350px;
             background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             opacity: 0;
-            transform: translateX(-50px);
-            animation: slideInLeft 0.8s ease forwards 0.2s;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease forwards 0.2s;
         }
 
         .content-left h2 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             color: #1a252f;
+            font-size: 2rem;
             margin-bottom: 1.5rem;
         }
 
         .content-left ul {
             list-style: none;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .content-left ul li {
-            padding: 0.5rem 0;
+            padding: 0.7rem 0;
             position: relative;
-            padding-left: 1.5rem;
+            padding-left: 2rem;
+            font-size: 1.1rem;
         }
 
         .content-left ul li::before {
@@ -158,141 +169,210 @@
             color: #d4a373;
             position: absolute;
             left: 0;
+            top: 0.8rem;
         }
 
         .form-section {
             flex: 1;
-            min-width: 300px;
+            min-width: 350px;
             background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             opacity: 0;
-            transform: translateX(50px);
-            animation: slideInRight 0.8s ease forwards 0.2s;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease forwards 0.4s;
         }
 
         .form-section h2 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             text-align: center;
-            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            margin-bottom: 2rem;
             color: #1a252f;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             position: relative;
         }
 
         .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            color: #1a252f;
+            position: absolute;
+            top: 0.8rem;
+            left: 2.5rem;
+            color: #666;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .form-group input:focus + label,
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group select:focus + label,
+        .form-group select:not(:placeholder-shown) + label {
+            top: -1rem;
+            left: 1rem;
+            font-size: 0.9rem;
+            color: #d4a373;
         }
 
         .form-group input,
         .form-group select {
             width: 100%;
             padding: 0.8rem 0.8rem 0.8rem 2.5rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
             font-size: 1rem;
+            background: #f9f9f9;
             transition: border-color 0.3s, box-shadow 0.3s;
         }
 
         .form-group input:focus,
         .form-group select:focus {
-            outline: none;
             border-color: #d4a373;
-            box-shadow: 0 0 5px rgba(212, 163, 115, 0.5);
+            box-shadow: 0 0 8px rgba(212, 163, 115, 0.3);
         }
 
         .form-group i {
             position: absolute;
             left: 0.8rem;
-            top: 2.4rem;
+            top: 0.9rem;
             color: #d4a373;
         }
 
         button {
             width: 100%;
-            padding: 1rem;
-            background: #d4a373;
+            padding: 1.2rem;
+            background: linear-gradient(45deg, #d4a373, #b8860b);
             color: white;
             border: none;
             border-radius: 50px;
-            font-size: 1.1rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
             cursor: pointer;
-            transition: transform 0.3s, background 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         button:hover {
-            background: #b8860b;
-            transform: scale(1.05);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 163, 115, 0.5);
         }
 
         .success-message {
             display: none;
             text-align: center;
             color: #27ae60;
-            font-weight: bold;
-            margin-top: 1rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-top: 1.5rem;
+        }
+
+        .testimonial-section {
+            max-width: 1300px;
+            margin: 4rem auto;
+            padding: 3rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.6s;
+        }
+
+        .testimonial-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            color: #1a252f;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial {
+            display: none;
+            padding: 1rem;
+        }
+
+        .testimonial.active {
+            display: block;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .testimonial cite {
+            font-family: 'Poppins', sans-serif;
+            color: #d4a373;
+            font-weight: 600;
         }
 
         .seo-section {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 2.5rem;
+            max-width: 1300px;
+            margin: 4rem auto;
+            padding: 3rem;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             opacity: 0;
-            animation: fadeIn 1s ease forwards 0.4s;
+            animation: fadeInUp 0.8s ease forwards 0.8s;
         }
 
         .seo-section h2,
         .seo-section h3 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             color: #1a252f;
             margin-bottom: 1.5rem;
         }
 
+        .float-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(45deg, #d4a373, #b8860b);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+            z-index: 1000;
+        }
+
+        .float-button:hover {
+            transform: scale(1.1);
+        }
+
         footer {
             text-align: center;
-            padding: 2rem;
-            background: #1a252f;
+            padding: 3rem;
+            background: linear-gradient(90deg, #1a252f, #2c3e50);
             color: white;
+            font-size: 1rem;
+        }
+
+        @keyframes zoomIn {
+            to { opacity: 1; transform: scale(1); }
         }
 
         @keyframes fadeInUp {
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes slideInLeft {
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes slideInRight {
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
         @media (max-width: 768px) {
             .header-content h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             .header-content p {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
 
             .main-section {
                 flex-direction: column;
-                padding: 1rem;
+                padding: 1.5rem;
             }
 
             .content-left,
@@ -305,12 +385,33 @@
                 gap: 1rem;
             }
 
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
             .nav-links a {
-                margin: 0 0.5rem;
+                margin: 0.5rem 0;
+            }
+
+            .hamburger {
+                display: block;
             }
 
             header {
                 background-attachment: scroll;
+            }
+
+            .float-button {
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.8rem 1.5rem;
             }
         }
     </style>
@@ -321,8 +422,10 @@
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#investment-form">Contact</a>
+            <a href="#testimonials">Testimonials</a>
             <a href="#about">About</a>
         </div>
+        <i class="fas fa-bars hamburger"></i>
     </nav>
 
     <header id="home">
@@ -351,23 +454,21 @@
             <h2>Connect with Our Investment Team</h2>
             <form id="investmentForm">
                 <div class="form-group">
+                    <input type="text" id="name" name="name" required aria-required="true" placeholder=" ">
                     <label for="name">Full Name</label>
                     <i class="fas fa-user"></i>
-                    <input type="text" id="name" name="name" required aria-required="true">
                 </div>
                 <div class="form-group">
+                    <input type="email" id="email" name="email" required aria-required="true" placeholder=" ">
                     <label for="email">Email Address</label>
                     <i class="fas fa-envelope"></i>
-                    <input type="email" id="email" name="email" required aria-required="true">
                 </div>
                 <div class="form-group">
+                    <input type="tel" id="phone" name="phone" required aria-required="true" placeholder=" ">
                     <label for="phone">Phone Number</label>
                     <i class="fas fa-phone"></i>
-                    <input type="tel" id="phone" name="phone" required aria-required="true">
                 </div>
                 <div class="form-group">
-                    <label for="investment-type">Investment Interest</label>
-                    <i class="fas fa-briefcase"></i>
                     <select id="investment-type" name="investment-type" required aria-required="true">
                         <option value="" disabled selected>Select an option</option>
                         <option value="real-estate">Real Estate</option>
@@ -375,6 +476,8 @@
                         <option value="stocks">Stocks & Bonds</option>
                         <option value="other">Other</option>
                     </select>
+                    <label for="investment-type">Investment Interest</label>
+                    <i class="fas fa-briefcase"></i>
                 </div>
                 <button type="submit">Submit</button>
                 <p class="success-message" id="successMessage">Thank you! Our team will contact you soon.</p>
@@ -382,30 +485,64 @@
         </div>
     </section>
 
+    <section class="testimonial-section" id="testimonials">
+        <h2>What Our Investors Say</h2>
+        <div class="testimonial active">
+            <p>"Dubai Investment Group transformed my portfolio with their expert guidance in real estate. Highly professional and results-driven!"</p>
+            <cite>- John D., Real Estate Investor</cite>
+        </div>
+        <div class="testimonial">
+            <p>"Their team helped me navigate Dubai’s business landscape with ease. I’m now running a successful startup in a free zone!"</p>
+            <cite>- Aisha K., Entrepreneur</cite>
+        </div>
+        <div class="testimonial">
+            <p>"The financial market insights provided by DIG were spot-on. My investments have grown significantly!"</p>
+            <cite>- Michael S., Financial Investor</cite>
+        </div>
+    </section>
+
     <section class="seo-section" id="about">
         <h2>Why Choose Dubai for Your Investments?</h2>
         <p>Dubai is a premier destination for investors seeking high returns and long-term growth. Known for its futuristic skyline, business-friendly policies, and vibrant economy, Dubai offers a wealth of opportunities across multiple sectors.</p>
-        
         <h3>Real Estate Investment in Dubai</h3>
         <p>Dubai’s real estate market is one of the most dynamic in the world. From luxury villas in Palm Jumeirah to commercial properties in Downtown Dubai, the city offers diverse options for investors. With no property taxes and high rental yields, real estate in Dubai is a top choice for wealth creation.</p>
-        
         <h3>Business Opportunities in Dubai</h3>
         <p>Starting or expanding a business in Dubai is seamless, thanks to free zones, 100% foreign ownership, and zero corporate taxes. Sectors like technology, tourism, and logistics are thriving, making Dubai an ideal hub for entrepreneurs and investors.</p>
-        
         <h3>Financial Markets and Beyond</h3>
         <p>Dubai’s financial markets offer access to global stocks, bonds, and alternative investments. With a stable currency and a robust financial ecosystem, investors can diversify their portfolios with confidence.</p>
-        
         <p>Ready to explore investment opportunities in Dubai? Contact our expert team today by filling out the form above, and let us guide you toward a prosperous future.</p>
     </section>
+
+    <a href="#investment-form" class="float-button">Contact Us</a>
 
     <footer>
         <p>&copy; 2025 Dubai Investment Group. All rights reserved.</p>
     </footer>
 
     <script>
+        // Hamburger menu toggle
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Testimonial slider
+        const testimonials = document.querySelectorAll('.testimonial');
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.classList.toggle('active', i === index);
+            });
+        }
+
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+
+        // Form submission
         document.getElementById('investmentForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
