@@ -32,7 +32,7 @@
             background: linear-gradient(90deg, #1a252f, #2c3e50);
             padding: 1rem 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             z-index: 1000;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
@@ -43,31 +43,6 @@
             font-family: 'Poppins', sans-serif;
             font-size: 1.8rem;
             font-weight: 600;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 1.5rem;
-            font-size: 1rem;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #d4a373;
-            transform: translateY(-2px);
-        }
-
-        .hamburger {
-            display: none;
-            font-size: 1.5rem;
-            color: white;
-            cursor: pointer;
         }
 
         header {
@@ -439,37 +414,10 @@
         @media (max-width: 768px) {
             nav {
                 padding: 0.8rem 1.5rem;
-                flex-direction: row;
-                align-items: center;
             }
 
             .logo {
                 font-size: 1.5rem;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: #1a252f;
-                flex-direction: column;
-                padding: 1rem 0;
-                animation: slideIn 0.3s ease forwards;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
-                margin: 0.8rem 0;
-                font-size: 1.1rem;
-            }
-
-            .hamburger {
-                display: block;
             }
 
             header {
@@ -597,10 +545,6 @@
                 font-size: 1.3rem;
             }
 
-            .hamburger {
-                font-size: 1.3rem;
-            }
-
             .header-content h1 {
                 font-size: 1.8rem;
             }
@@ -659,11 +603,6 @@
                 height: 35px;
             }
         }
-
-        @keyframes slideIn {
-            from { transform: translateY(-10px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
     </style>
 </head>
 <body>
@@ -706,13 +645,6 @@
 
     <nav>
         <div class="logo">Dubai Investment Group</div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#investment-form">Invest Now</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#about">About</a>
-        </div>
-        <i class="fas fa-bars hamburger"></i>
     </nav>
 
     <header id="home">
@@ -855,11 +787,6 @@
     </footer>
 
     <script>
-        // Hamburger menu toggle
-        document.querySelector('.hamburger').addEventListener('click', () => {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
         // Testimonial slider
         const testimonials = document.querySelectorAll('.testimonial');
         let currentTestimonial = 0;
