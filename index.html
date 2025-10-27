@@ -214,7 +214,7 @@
         .form-group input:focus + label,
         .form-group input:not(:placeholder-shown) + label,
         .form-group select:focus + label,
-        .form-group select:not(:placeholder-shown) + label {
+        .form-group select:not(:value="") + label {
             top: -0.8rem;
             left: 0.8rem;
             font-size: 0.8rem;
@@ -236,6 +236,7 @@
         .form-group select:focus {
             border-color: #d4a373;
             box-shadow: 0 0 6px rgba(212, 163, 115, 0.3);
+            outline: none;
         }
 
         .form-group i {
@@ -345,6 +346,52 @@
             font-size: 0.95rem;
         }
 
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: white;
+            max-width: 500px;
+            width: 90%;
+            padding: 2rem;
+            border-radius: 15px;
+            position: relative;
+            animation: fadeInUp 0.6s ease forwards;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup-content h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            color: #1a252f;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            color: #1a252f;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-popup:hover {
+            color: #d4a373;
+        }
+
         .float-button {
             position: fixed;
             bottom: 1.5rem;
@@ -443,45 +490,60 @@
             }
 
             .content-left,
-            .form-section {
+            .form-section,
+            .popup-content {
                 min-width: auto;
                 padding: 1.5rem;
             }
 
             .content-left h2,
-            .form-section h2 {
+            .form-section h2,
+            .popup-content h2 {
                 font-size: 1.5rem;
             }
 
             .form-group input,
             .form-group select {
-                padding: 0.6rem 0.6rem 0.6rem 2rem;
+                padding: 0.8rem 0.8rem 0.8rem 2.2rem;
                 font-size: 0.9rem;
+                line-height: 1.4;
+            }
+
+            .form-group select {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                background: #f9f9f9 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23d4a373"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 0.8rem center/16px 16px;
             }
 
             .form-group i {
-                top: 0.7rem;
-                left: 0.6rem;
-                font-size: 0.8rem;
+                top: 0.9rem;
+                left: 0.7rem;
+                font-size: 0.85rem;
             }
 
             .form-group label {
-                top: 0.6rem;
-                left: 2rem;
+                top: 0.8rem;
+                left: 2.2rem;
+                font-size: 0.9rem;
             }
 
             .form-group input:focus + label,
             .form-group input:not(:placeholder-shown) + label,
             .form-group select:focus + label,
-            .form-group select:not(:placeholder-shown) + label {
+            .form-group select:not(:value="") + label {
                 top: -0.7rem;
-                left: 0.6rem;
+                left: 0.7rem;
                 font-size: 0.75rem;
             }
 
             button {
                 padding: 0.8rem;
                 font-size: 0.9rem;
+            }
+
+            .success-message {
+                font-size: 0.85rem;
             }
 
             .testimonial-section {
@@ -502,6 +564,11 @@
 
             .seo-section h3 {
                 font-size: 1.2rem;
+            }
+
+            .popup-content {
+                width: 95%;
+                padding: 1.5rem;
             }
 
             .float-button {
@@ -538,6 +605,41 @@
                 top: 0.6rem;
                 font-size: 0.8rem;
             }
+
+            .form-group input,
+            .form-group select {
+                padding: 0.7rem 0.7rem 0.7rem 2rem;
+                font-size: 0.85rem;
+            }
+
+            .form-group select {
+                background-size: 14px 14px;
+            }
+
+            .form-group i {
+                top: 0.8rem;
+                left: 0.6rem;
+                font-size: 0.8rem;
+            }
+
+            .form-group label {
+                top: 0.7rem;
+                left: 2rem;
+                font-size: 0.85rem;
+            }
+
+            .form-group input:focus + label,
+            .form-group input:not(:placeholder-shown) + label,
+            .form-group select:focus + label,
+            .form-group select:not(:value="") + label {
+                top: -0.6rem;
+                left: 0.6rem;
+                font-size: 0.7rem;
+            }
+
+            .popup-content h2 {
+                font-size: 1.3rem;
+            }
         }
 
         @keyframes slideIn {
@@ -547,11 +649,48 @@
     </style>
 </head>
 <body>
+    <div class="popup" id="investmentPopup">
+        <div class="popup-content">
+            <i class="fas fa-times close-popup" id="closePopup"></i>
+            <h2>Connect with Our Investment Team</h2>
+            <form id="popupInvestmentForm">
+                <div class="form-group">
+                    <input type="text" id="popup-name" name="popup-name" required aria-required="true" placeholder=" ">
+                    <label for="popup-name">Full Name</label>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="popup-email" name="popup-email" required aria-required="true" placeholder=" ">
+                    <label for="popup-email">Email Address</label>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="popup-phone" name="popup-phone" required aria-required="true" placeholder=" ">
+                    <label for="popup-phone">Phone Number</label>
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="form-group">
+                    <select id="popup-investment-type" name="popup-investment-type" required aria-required="true">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="real-estate">Real Estate</option>
+                        <option value="business">Business Ventures</option>
+                        <option value="stocks">Stocks & Bonds</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <label for="popup-investment-type">Investment Interest</label>
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <button type="submit">Submit</button>
+                <p class="success-message" id="popupSuccessMessage">Thank you! Our team will contact you soon.</p>
+            </form>
+        </div>
+    </div>
+
     <nav>
         <div class="logo">Dubai Investment Group</div>
         <div class="nav-links">
             <a href="#home">Home</a>
-            <a href="#investment-form">Contact</a>
+            <a href="#investment-form">Invest Now</a>
             <a href="#testimonials">Testimonials</a>
             <a href="#about">About</a>
         </div>
@@ -643,7 +782,7 @@
         <p>Ready to explore investment opportunities in Dubai? Contact our expert team today by filling out the form above, and let us guide you toward a prosperous future.</p>
     </section>
 
-    <a href="#investment-form" class="float-button">Contact Us</a>
+    <a href="#investment-form" class="float-button">Invest Now</a>
 
     <footer>
         <p>&copy; 2025 Dubai Investment Group. All rights reserved.</p>
@@ -670,7 +809,7 @@
             showTestimonial(currentTestimonial);
         }, 5000);
 
-        // Form submission
+        // Form submission for main form
         document.getElementById('investmentForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const name = document.getElementById('name').value;
@@ -684,6 +823,39 @@
                 setTimeout(() => {
                     document.getElementById('successMessage').style.display = 'none';
                 }, 3000);
+            }
+        });
+
+        // Form submission for popup form
+        document.getElementById('popupInvestmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('popup-name').value;
+            const email = document.getElementById('popup-email').value;
+            const phone = document.getElementById('popup-phone').value;
+            const investmentType = document.getElementById('popup-investment-type').value;
+
+            if (name && email && phone && investmentType) {
+                document.getElementById('popupSuccessMessage').style.display = 'block';
+                this.reset();
+                setTimeout(() => {
+                    document.getElementById('popupSuccessMessage').style.display = 'none';
+                    document.getElementById('investmentPopup').style.display = 'none';
+                }, 3000);
+            }
+        });
+
+        // Popup functionality
+        window.addEventListener('load', () => {
+            document.getElementById('investmentPopup').style.display = 'flex';
+        });
+
+        document.getElementById('closePopup').addEventListener('click', () => {
+            document.getElementById('investmentPopup').style.display = 'none';
+        });
+
+        document.getElementById('investmentPopup').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('investmentPopup')) {
+                document.getElementById('investmentPopup').style.display = 'none';
             }
         });
     </script>
