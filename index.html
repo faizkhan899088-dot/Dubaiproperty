@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover exclusive investment opportunities in Dubai with Dubai Investment Group. Explore real estate, business ventures, and financial markets with our expert team.">
-    <meta name="keywords" content="Dubai investment, real estate investment Dubai, business opportunities Dubai, invest in Dubai, Dubai financial services">
+    <meta name="description" content="Discover exclusive investment opportunities in Dubai with Dubai Investment Group.">
+    <meta name="keywords" content="Dubai investment, real estate investment Dubai, business opportunities Dubai">
     <meta name="author" content="Dubai Investment Group">
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="qYGjUw0Raj7S4GnHuGPOJaATRu1rnwuXBah0ooU1OfA" />
@@ -12,400 +12,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Open Sans', sans-serif;
-        }
-        body {
-            background: #f8f4e6;
-            color: #1a252f;
-            line-height: 1.6;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-        nav {
-            position: sticky;
-            top: 0;
-            background: linear-gradient(90deg, #1a252f, #2c3e50);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-        }
-        .logo {
-            color: #d4a373;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 600;
-        }
-        header {
-            position: relative;
-            height: 80vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            background: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-        }
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
-        }
-        .header-content {
-            position: relative;
-            z-index: 1;
-            opacity: 0;
-            transform: scale(0.9);
-            animation: zoomIn 0.8s ease forwards;
-        }
-        .header-content h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3.5rem;
-            margin-bottom: 1.2rem;
-            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9);
-        }
-        .header-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-        }
-        .cta-button {
-            background: linear-gradient(45deg, #d4a373, #b8860b);
-            color: white;
-            padding: 0.8rem 2.5rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(212, 163, 115, 0.5);
-        }
-        .main-section {
-            display: flex;
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 2rem;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        .content-left {
-            flex: 1;
-            min-width: 300px;
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.6s ease forwards 0.2s;
-        }
-        .content-left h2 {
-            font-family: 'Poppins', sans-serif;
-            color: #1a252f;
-            font-size: 1.8rem;
-            margin-bottom: 1.2rem;
-        }
-        .content-left ul {
-            list-style: none;
-            margin-bottom: 1.2rem;
-        }
-        .content-left ul li {
-            padding: 0.6rem 0;
-            position: relative;
-            padding-left: 1.8rem;
-            font-size: 1rem;
-        }
-        .content-left ul li::before {
-            content: '\f058';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            color: #d4a373;
-            position: absolute;
-            left: 0;
-            top: 0.7rem;
-        }
-        .form-section {
-            flex: 1;
-            min-width: 300px;
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.6s ease forwards 0.4s;
-        }
-        .form-section h2 {
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #1a252f;
-        }
-        .form-group {
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-        .form-group label {
-            position: absolute;
-            top: 0.7rem;
-            left: 2.2rem;
-            color: #666;
-            transition: all 0.3s ease;
-            pointer-events: none;
-        }
-        .form-group input:focus + label,
-        .form-group input:not(:placeholder-shown) + label,
-        .form-group select:focus + label,
-        .form-group select:not(:value="") + label {
-            top: -0.8rem;
-            left: 0.8rem;
-            font-size: 0.8rem;
-            color: #d4a373;
-        }
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 0.7rem 0.7rem 0.7rem 2.2rem;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            background: #f9f9f9;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-        .form-group input:focus,
-        .form-group select:focus {
-            border-color: #d4a373;
-            box-shadow: 0 0 6px rgba(212, 163, 115, 0.3);
-            outline: none;
-        }
-        .form-group i {
-            position: absolute;
-            left: 0.7rem;
-            top: 0.8rem;
-            color: #d4a373;
-            font-size: 0.9rem;
-        }
-        button {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(45deg, #d4a373, #b8860b);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(212, 163, 115, 0.5);
-        }
-        .success-message {
-            display: none;
-            text-align: center;
-            color: #27ae60;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-        }
-        .testimonial-section {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease forwards 0.6s;
-        }
-        .testimonial-section h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem;
-            color: #1a252f;
-            margin-bottom: 1.5rem;
-        }
-        .testimonial {
-            display: none;
-            padding: 1rem;
-        }
-        .testimonial.active {
-            display: block;
-        }
-        .testimonial p {
-            font-style: italic;
-            margin-bottom: 1rem;
-            color: #555;
-            font-size: 0.95rem;
-        }
-        .testimonial cite {
-            font-family: 'Poppins', sans-serif;
-            color: #d4a373;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        .testimonial img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-bottom: 0.5rem;
-            object-fit: cover;
-        }
-        .seo-section {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            animation: fadeInUp 0.6s ease forwards 0.8s;
-        }
-        .seo-section h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem;
-            color: #1a252f;
-            margin-bottom: 1.2rem;
-        }
-        .seo-section h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.4rem;
-            color: #1a252f;
-            margin: 1.2rem 0 0.8rem;
-        }
-        .seo-section p {
-            font-size: 0.95rem;
-        }
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-        .popup-content {
-            background: white;
-            max-width: 500px;
-            width: 90%;
-            padding: 2rem;
-            border-radius: 15px;
-            position: relative;
-            animation: fadeInUp 0.6s ease forwards;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        .popup-content h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem;
-            color: #1a252f;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        .close-popup {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            color: #1a252f;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        .close-popup:hover {
-            color: #d4a373;
-        }
-        .float-button {
-            position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            background: linear-gradient(45deg, #d4a373, #b8860b);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.9rem;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s;
-            z-index: 1000;
-        }
-        .float-button:hover {
-            transform: scale(1.1);
-        }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(90deg, #1a252f, #2c3e50);
-            color: white;
-            font-size: 0.9rem;
-        }
-        @keyframes zoomIn {
-            to { opacity: 1; transform: scale(1); }
-        }
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @media (max-width: 768px) {
-            nav { padding: 0.8rem 1.5rem; }
-            .logo { font-size: 1.5rem; }
-            header { height: 60vh; }
-            .header-content h1 { font-size: 2rem; }
-            .header-content p { font-size: 1rem; }
-            .cta-button { padding: 0.6rem 2rem; font-size: 0.9rem; }
-            .main-section { flex-direction: column; padding: 1.5rem; gap: 1.5rem; }
-            .content-left, .form-section, .popup-content { min-width: auto; padding: 1.5rem; }
-            .content-left h2, .form-section h2, .popup-content h2 { font-size: 1.5rem; }
-            .form-group input, .form-group select { padding: 0.8rem 0.8rem 0.8rem 2.2rem; font-size: 0.9rem; }
-            .form-group select { background: #f9f9f9 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23d4a373"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 0.8rem center/16px 16px; }
-            .form-group i { top: 0.9rem; left: 0.7rem; font-size: 0.85rem; }
-            .form-group label { top: 0.8rem; left: 2.2rem; font-size: 0.9rem; }
-            .form-group input:focus + label, .form-group input:not(:placeholder-shown) + label,
-            .form-group select:focus + label, .form-group select:not(:value="") + label {
-                top: -0.7rem; left: 0.7rem; font-size: 0.75rem;
-            }
-            button { padding: 0.8rem; font-size: 0.9rem; }
-            .success-message { font-size: 0.85rem; }
-            .testimonial-section, .seo-section { padding: 1.5rem; }
-            .testimonial-section h2, .seo-section h2 { font-size: 1.5rem; }
-            .seo-section h3 { font-size: 1.2rem; }
-            .popup-content { width: 95%; padding: 1.5rem; }
-            .float-button { padding: 0.6rem 1.2rem; font-size: 0.8rem; bottom: 1rem; right: 1rem; }
-            .testimonial img { width: 40px; height: 40px; }
-        }
-        @media (max-width: 480px) {
-            .logo { font-size: 1.3rem; }
-            .header-content h1 { font-size: 1.8rem; }
-            .header-content p { font-size: 0.9rem; }
-            .content-left ul li { font-size: 0.9rem; padding-left: 1.5rem; }
-            .content-left ul li::before { top: 0.6rem; font-size: 0.8rem; }
-            .form-group input, .form-group select { padding: 0.7rem 0.7rem 0.7rem 2rem; font-size: 0.85rem; }
-            .form-group select { background-size: 14px 14px; }
-            .form-group i { top: 0.8rem; left: 0.6rem; font-size: 0.8rem; }
-            .form-group label { top: 0.7rem; left: 2rem; font-size: 0.85rem; }
-            .form-group input:focus + label, .form-group input:not(:placeholder-shown) + label,
-            .form-group select:focus + label, .form-group select:not(:value="") + label {
-                top: -0.6rem; left: 0.6rem; font-size: 0.7rem;
-            }
-            .popup-content h2 { font-size: 1.3rem; }
-            .testimonial img { width: 35px; height: 35px; }
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Open Sans',sans-serif}
+        body{background:#f8f4e6;color:#1a252f;line-height:1.6;overflow-x:hidden;scroll-behavior:smooth}
+        nav{position:sticky;top:0;background:linear-gradient(90deg,#1a252f,#2c3e50);padding:1rem 2rem;display:flex;justify-content:center;align-items:center;z-index:1000;box-shadow:0 3px 10px rgba(0,0,0,.2)}
+        .logo{color:#d4a373;font-family:'Poppins',sans-serif;font-size:1.8rem;font-weight:600}
+        header{position:relative;height:80vh;display:flex;justify-content:center;align-items:center;text-align:center;color:white;background:url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat}
+        header::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.4))}
+        .header-content{position:relative;z-index:1;opacity:0;transform:scale(.9);animation:zoomIn .8s ease forwards}
+        .header-content h1{font-family:'Poppins',sans-serif;font-size:3.5rem;margin-bottom:1.2rem;text-shadow:3px 3px 8px rgba(0,0,0,.9)}
+        .header-content p{font-size:1.3rem;margin-bottom:2rem}
+        .cta-button{background:linear-gradient(45deg,#d4a373,#b8860b);color:white;padding:.8rem 2.5rem;text-decoration:none;border-radius:50px;font-family:'Poppins',sans-serif;font-size:1.1rem;transition:transform .3s,box-shadow .3s}
+        .cta-button:hover{transform:translateY(-3px);box-shadow:0 5px 15px rgba(212,163,115,.5)}
+        .main-section{display:flex;max-width:1200px;margin:3rem auto;padding:2rem;gap:2rem;flex-wrap:wrap}
+        .content-left,.form-section{flex:1;min-width:300px;background:white;padding:2rem;border-radius:15px;box-shadow:0 8px 20px rgba(0,0,0,.1)}
+        .content-left{opacity:0;transform:translateY(30px);animation:fadeInUp .6s ease forwards .2s}
+        .form-section{opacity:0;transform:translateY(30px);animation:fadeInUp .6s ease forwards .4s}
+        .content-left h2,.form-section h2,.popup-content h2{font-family:'Poppins',sans-serif;color:#1a252f;font-size:1.8rem;margin-bottom:1.2rem;text-align:center}
+        .content-left ul{list-style:none;margin-bottom:1.2rem}
+        .content-left ul li{padding:.6rem 0 .6rem 1.8rem;position:relative;font-size:1rem}
+        .content-left ul li::before{content:'\f058';font-family:'Font Awesome 6 Free';font-weight:900;color:#d4a373;position:absolute;left:0;top:.7rem}
+        .form-group{margin-bottom:1.5rem;position:relative}
+        .form-group label{position:absolute;top:.7rem;left:2.2rem;color:#666;transition:all .3s;pointer-events:none}
+        .form-group input:focus+label,.form-group input:not(:placeholder-shown)+label,
+        .form-group select:focus+label,.form-group select:not(:value="")+label{top:-.8rem;left:.8rem;font-size:.8rem;color:#d4a373}
+        .form-group input,.form-group select{width:100%;padding:.7rem .7rem .7rem 2.2rem;border:1px solid #ddd;border-radius:6px;font-size:.95rem;background:#f9f9f9;transition:border-color .3s,box-shadow .3s}
+        .form-group input:focus,.form-group select:focus{border-color:#d4a373;box-shadow:0 0 6px rgba(212,163,115,.3);outline:none}
+        .form-group i{position:absolute;left:.7rem;top:.8rem;color:#d4a373;font-size:.9rem}
+        button{width:100%;padding:1rem;background:linear-gradient(45deg,#d4a373,#b8860b);color:white;border:none;border-radius:50px;font-family:'Poppins',sans-serif;font-size:1rem;cursor:pointer;transition:transform .3s,box-shadow .3s}
+        button:hover{transform:translateY(-2px);box-shadow:0 5px 10px rgba(212,163,115,.5)}
+        .success-message{display:none;text-align:center;color:#27ae60;font-family:'Poppins',sans-serif;font-weight:600;margin-top:1rem;font-size:.9rem}
+        .popup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:2000;justify-content:center;align-items:center}
+        .popup-content{background:white;max-width:500px;width:90%;padding:2rem;border-radius:15px;position:relative;animation:fadeInUp .6s ease forwards;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+        .close-popup{position:absolute;top:1rem;right:1rem;font-size:1.5rem;color:#1a252f;cursor:pointer;transition:color .3s}
+        .close-popup:hover{color:#d4a373}
+        .float-button{position:fixed;bottom:1.5rem;right:1.5rem;background:linear-gradient(45deg,#d4a373,#b8860b);color:white;padding:.8rem 1.5rem;border-radius:50px;text-decoration:none;font-family:'Poppins',sans-serif;font-size:.9rem;box-shadow:0 5px 10px rgba(0,0,0,.3);transition:transform .3s;z-index:1000}
+        .float-button:hover{transform:scale(1.1)}
+        footer{text-align:center;padding:2rem;background:linear-gradient(90deg,#1a252f,#2c3e50);color:white;font-size:.9rem}
+        @keyframes zoomIn{to{opacity:1;transform:scale(1)}}
+        @keyframes fadeInUp{to{opacity:1;transform:translateY(0)}}
+        @media(max-width:768px){
+            nav{padding:.8rem 1.5rem}.logo{font-size:1.5rem}
+            header{height:60vh}.header-content h1{font-size:2rem}.header-content p{font-size:1rem}
+            .main-section{flex-direction:column;padding:1.5rem;gap:1.5rem}
+            .content-left,.form-section,.popup-content{min-width:auto;padding:1.5rem}
+            .content-left h2,.form-section h2,.popup-content h2{font-size:1.5rem}
+            .form-group input,.form-group select{padding:.8rem .8rem .8rem 2.2rem;font-size:.9rem}
+            button{padding:.8rem;font-size:.9rem}
+            .float-button{padding:.6rem 1.2rem;font-size:.8rem;bottom:1rem;right:1rem}
         }
     </style>
 </head>
@@ -418,22 +71,22 @@
             <h2>Connect with Our Investment Team</h2>
             <form id="popupInvestmentForm">
                 <div class="form-group">
-                    <input type="text" id="popup-name" name="popup-name" required placeholder=" ">
+                    <input type="text" id="popup-name" required placeholder=" ">
                     <label for="popup-name">Full Name</label>
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="form-group">
-                    <input type="email" id="popup-email" name="popup-email" required placeholder=" ">
+                    <input type="email" id="popup-email" required placeholder=" ">
                     <label for="popup-email">Email Address</label>
                     <i class="fas fa-envelope"></i>
                 </div>
                 <div class="form-group">
-                    <input type="tel" id="popup-phone" name="popup-phone" required placeholder=" ">
+                    <input type="tel" id="popup-phone" required placeholder=" ">
                     <label for="popup-phone">Phone Number</label>
                     <i class="fas fa-phone"></i>
                 </div>
                 <div class="form-group">
-                    <select id="popup-investment-type" name="popup-investment-type" required>
+                    <select id="popup-investment-type" required>
                         <option value="" disabled selected>Select an option</option>
                         <option value="real-estate">Real Estate</option>
                         <option value="business">Business Ventures</option>
@@ -449,9 +102,7 @@
         </div>
     </div>
 
-    <nav>
-        <div class="logo">Dubai Investment Group</div>
-    </nav>
+    <nav><div class="logo">Dubai Investment Group</div></nav>
 
     <header id="home">
         <div class="header-content">
@@ -464,38 +115,36 @@
     <section class="main-section">
         <div class="content-left">
             <h2>Why Invest in Dubai?</h2>
-            <p>Dubai is a global hub for investment, offering unparalleled opportunities in real estate, business, and financial markets. With its strategic location, tax-free environment, and world-class infrastructure, Dubai attracts investors worldwide.</p>
-            <p>Our team at Dubai Investment Group specializes in guiding you through high-return opportunities, whether you're interested in luxury properties, innovative startups, or diversified portfolios.</p>
-            <p>Key benefits include:</p>
+            <p>Dubai is a global hub for investment, offering unparalleled opportunities in real estate, business, and financial markets.</p>
+            <p>Our team specializes in high-return opportunities.</p>
+            <p>Key benefits:</p>
             <ul>
                 <li>Tax-free income and capital gains</li>
                 <li>Stable and growing economy</li>
-                <li>World-class real estate developments</li>
+                <li>World-class real estate</li>
                 <li>Access to global markets</li>
             </ul>
-            <p>Fill out the form to connect with our experts and start your investment journey today.</p>
         </div>
-
         <div class="form-section" id="investment-form">
             <h2>Connect with Our Investment Team</h2>
             <form id="investmentForm">
                 <div class="form-group">
-                    <input type="text" id="name" name="name" required placeholder=" ">
+                    <input type="text" id="name" required placeholder=" ">
                     <label for="name">Full Name</label>
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="form-group">
-                    <input type="email" id="email" name="email" required placeholder=" ">
+                    <input type="email" id="email" required placeholder=" ">
                     <label for="email">Email Address</label>
                     <i class="fas fa-envelope"></i>
                 </div>
                 <div class="form-group">
-                    <input type="tel" id="phone" name="phone" required placeholder=" ">
+                    <input type="tel" id="phone" required placeholder=" ">
                     <label for="phone">Phone Number</label>
                     <i class="fas fa-phone"></i>
                 </div>
                 <div class="form-group">
-                    <select id="investment-type" name="investment-type" required>
+                    <select id="investment-type" required>
                         <option value="" disabled selected>Select an option</option>
                         <option value="real-estate">Real Estate</option>
                         <option value="business">Business Ventures</option>
@@ -511,64 +160,22 @@
         </div>
     </section>
 
-    <section class="testimonial-section" id="testimonials">
-        <h2>What Our Investors Say</h2>
-        <!-- [All testimonials same as before] -->
-        <div class="testimonial active"> <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="John D."> <p>"Dubai Investment Group transformed my portfolio with their expert guidance in real estate. Highly professional and results-driven!"</p> <cite>- John D., Real Estate Investor</cite> </div>
-        <div class="testimonial"> <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Aisha K."> <p>"Their team helped me navigate Dubai’s business landscape with ease. I’m now running a successful startup in a free zone!"</p> <cite>- Aisha K., Entrepreneur</cite> </div>
-        <!-- Add all 12 testimonials here if needed -->
-    </section>
-
-    <section class="seo-section" id="about">
-        <h2>Why Choose Dubai for Your Investments?</h2>
-        <p>Dubai is a premier destination for investors seeking high returns and long-term growth. Known for its futuristic skyline, business-friendly policies, and vibrant economy, Dubai offers a wealth of opportunities across multiple sectors.</p>
-        <h3>Real Estate Investment in Dubai</h3>
-        <p>Dubai’s real estate market is one of the most dynamic in the world. From luxury villas in Palm Jumeirah to commercial properties in Downtown Dubai, the city offers diverse options for investors. With no property taxes and high rental yields, real estate in Dubai is a top choice for wealth creation.</p>
-        <h3>Business Opportunities in Dubai</h3>
-        <p>Starting or expanding a business in Dubai is seamless, thanks to free zones, 100% foreign ownership, and zero corporate taxes. Sectors like technology, tourism, and logistics are thriving, making Dubai an ideal hub for entrepreneurs and investors.</p>
-        <h3>Financial Markets and Beyond</h3>
-        <p>Dubai’s financial markets offer access to global stocks, bonds, and alternative investments. With a stable currency and a robust financial ecosystem, investors can diversify their portfolios with confidence.</p>
-        <p>Ready to explore investment opportunities in Dubai? Contact our expert team today by filling out the form above, and let us guide you toward a prosperous future.</p>
-    </section>
-
     <a href="#investment-form" class="float-button">Invest Now</a>
 
-    <footer>
-        <p>© 2025 Dubai Investment Group. All rights reserved.</p>
-    </footer>
+    <footer><p>© 2025 Dubai Investment Group. All rights reserved.</p></footer>
 
-    <!-- Google Apps Script Webhook URL (Replace with your own) -->
+    <!-- JavaScript -->
     <script>
-        // <-- YAHAN APNA GOOGLE APPS SCRIPT WEB APP URL DAALEIN -->
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzO7O1X5i6hEi7DowaYVwsISsTcNHEtkkVtwiQRciJp-qsy7bLzUSbn6PuhWFLJzme0//exec";
+        // अपनी Web App URL यहाँ डालें
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzO7O1X5i6hEi7DowaYVwsISsTcNHEtkkVtwiQRciJp-qsy7bLzUSbn6PuhWFLJzme0/exec"; // ← यहाँ अपना URL डालें
 
-        // Main Form Submit
-        document.getElementById('investmentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const data = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                investmentType: document.getElementById('investment-type').value,
-                source: "Main Form"
-            };
-
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: { 'Content-Type': 'text/plain' }
-            })
-            .then(() => {
-                document.getElementById('successMessage').style.display = 'block';
-                this.reset();
-                setTimeout(() => document.getElementById('successMessage').style.display = 'none', 3000);
-            })
-            .catch(() => alert("Failed to submit. Please try again."));
-        });
-
-        // Popup Form Submit
+        // Popup Form
         document.getElementById('popupInvestmentForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            const btn = this.querySelector('button');
+            btn.disabled = true;
+            btn.textContent = "Submitting...";
+
             const data = {
                 name: document.getElementById('popup-name').value,
                 email: document.getElementById('popup-email').value,
@@ -579,8 +186,9 @@
 
             fetch(SCRIPT_URL, {
                 method: 'POST',
-                body: JSON.stringify(data),
-                headers: { 'Content-Type': 'text/plain' }
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
             })
             .then(() => {
                 document.getElementById('popupSuccessMessage').style.display = 'block';
@@ -590,22 +198,56 @@
                     document.getElementById('investmentPopup').style.display = 'none';
                 }, 3000);
             })
-            .catch(() => alert("Failed to submit."));
+            .catch(() => {
+                alert("Failed to submit. Please check your internet or try again.");
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.textContent = "Submit";
+            });
         });
 
-        // Testimonial Slider
-        const testimonials = document.querySelectorAll('.testimonial');
-        let i = 0;
-        setInterval(() => {
-            testimonials.forEach(t => t.classList.remove('active'));
-            testimonials[i].classList.add('active');
-            i = (i + 1) % testimonials.length;
-        }, 5000);
+        // Main Form
+        document.getElementById('investmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            btn.disabled = true;
+            btn.textContent = "Submitting...";
 
-        // Popup Open on Load
+            const data = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                investmentType: document.getElementById('investment-type').value,
+                source: "Main Form"
+            };
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                document.getElementById('successMessage').style.display = 'block';
+                this.reset();
+                setTimeout(() => document.getElementById('successMessage').style.display = 'none', 3000);
+            })
+            .catch(() => {
+                alert("Failed to submit. Please try again.");
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.textContent = "Submit";
+            });
+        });
+
+        // Popup Open/Close
         window.onload = () => document.getElementById('investmentPopup').style.display = 'flex';
         document.getElementById('closePopup').onclick = () => document.getElementById('investmentPopup').style.display = 'none';
-        document.getElementById('investmentPopup').onclick = (e) => { if (e.target === e.currentTarget) e.currentTarget.style.display = 'none'; };
+        document.getElementById('investmentPopup').onclick = (e) => {
+            if (e.target === e.currentTarget) e.currentTarget.style.display = 'none';
+        };
     </script>
 </body>
 </html>
